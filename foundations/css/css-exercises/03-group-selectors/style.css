@@ -1,0 +1,12 @@
+button {
+    font-size: 28px;
+    font-family: Helvetica, 'Times New Roman', sans-serif;
+}
+
+button.bone {
+    background-color: black;
+    color: white;
+}
+button.btwo {
+    background-color: yellow;
+}
