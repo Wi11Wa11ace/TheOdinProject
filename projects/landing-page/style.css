@@ -100,6 +100,7 @@ button {
     font-style: italic;
     font-weight: 100;
     margin-bottom: 8px;
+    text-align: justify;
 }
 
 .quote h6 {
