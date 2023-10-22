@@ -57,7 +57,7 @@ img {
 
 button {
     background-color: #3882F6;
-    border-radius: 10%;
+    border-radius: 10px;
     color: white;
     font-weight: bold;
     padding: 10px 30px;
@@ -106,4 +106,40 @@ button {
     margin-top: 8px;
     text-align: right;
     font-size: 18px;
+}
+
+.cta {
+    padding: 100px 160px;
+}
+
+.cta-container {
+    display: flex;
+    background-color: #3882F6;
+    border-radius: 10px;
+    color: #F9FAF8;
+    justify-content: space-around;
+}
+
+.cta-left {
+    flex: 3; 
+    padding: 25px 0 25px 100px;
+}
+
+.cta-left h1 {
+    margin-bottom: 8px;
+}
+
+.cta-left p {
+    margin-top: 8px;
+}
+
+.cta-right {
+    flex: 1;
+    align-self: center;
+    padding: 25px 0;
+}
+
+.cta-right button {
+    border: 2px solid #F9FAF8;
+    border-radius: 10px;
 }
