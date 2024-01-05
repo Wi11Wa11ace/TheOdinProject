@@ -6,7 +6,7 @@ function getComputerChoice() {
     return choices[choice]
 }
 
-function playRound(playerSelection, computerSelection = getComputerChoice().toLowerCase()) {
+function playRound(playerSelection, computerSelection = getComputerChoice()) {
     playerSelection = playerSelection.toLowerCase();
     computerSelection = computerSelection.toLowerCase();
 
@@ -31,30 +31,93 @@ function playRound(playerSelection, computerSelection = getComputerChoice().toLo
 
 function game() {
 
-    let computerCount = 0;
-    let playerCount = 0;
+    const buttonsDiv = document.querySelector("#buttons");
+    const playerC = document.querySelector("#playerC");
+    const computerC = document.querySelector("#computerC");
 
-    let result;
+    const playerChoice = document.querySelector("#player");
+    const computerChoice = document.querySelector("#computer");
 
-    for(let i = 0; i < 5; i++) {
-        result = playRound(prompt("Rock, paper or scissors?"));
-        console.log(result);
+    const rockButton = document.createElement("button");
+    const paperButton = document.createElement("button");
+    const scissorsButton = document.createElement("button");
 
+    rockButton.textContent = "Rock";
+    paperButton.textContent = "Paper";
+    scissorsButton.textContent = "Scissors";
+
+    rockButton.addEventListener("click", () => {
+        let result = playRound("rock");
         const resultArr = result.split(" ");
-        if (resultArr[1] === "win!") {
-            playerCount++;
-        } else if (resultArr[1] === "lose!") {
-            computerCount++;
-        }
-    }
 
-    if (computerCount > playerCount) {
-        console.log("The computer wins!");
-    } else if (playerCount > computerCount) {
-        console.log("The player wins!");
-    } else {
-        console.log("It's a tie!");
-    }
+        playerChoice.textContent = "Rock";
+
+        if (resultArr[1] === "win!") {
+
+            computerChoice.textContent = resultArr[4];
+
+            let playerCount = Number.parseInt(playerC.textContent);
+            playerCount++;
+            playerC.textContent = playerCount;
+        } else if (resultArr[1] === "lose!") {
+
+            computerChoice.textContent = resultArr[2];
+
+            let computerCount = Number.parseInt(computerC.textContent);
+            computerCount++;
+            computerC.textContent = computerCount;
+        }
+    });
+
+    paperButton.addEventListener("click", () => {
+        let result = playRound("paper");
+        const resultArr = result.split(" ");
+
+        playerChoice.textContent = "Paper";
+
+        if (resultArr[1] === "win!") {
+
+            computerChoice.textContent = resultArr[4];
+
+            let playerCount = Number.parseInt(playerC.textContent);
+            playerCount++;
+            playerC.textContent = playerCount;
+        } else if (resultArr[1] === "lose!") {
+
+            computerChoice.textContent = resultArr[2];
+
+            let computerCount = Number.parseInt(computerC.textContent);
+            computerCount++;
+            computerC.textContent = computerCount;
+        }
+    });
+
+    scissorsButton.addEventListener("click", () => {
+        let result = playRound("scissors");
+        const resultArr = result.split(" ");
+
+        playerChoice.textContent = "Scissors";
+
+        if (resultArr[1] === "win!") {
+
+            computerChoice.textContent = resultArr[4];
+
+            let playerCount = Number.parseInt(playerC.textContent);
+            playerCount++;
+            playerC.textContent = playerCount;
+        } else if (resultArr[1] === "lose!") {
+
+            computerChoice.textContent = resultArr[2];
+
+            let computerCount = Number.parseInt(computerC.textContent);
+            computerCount++;
+            computerC.textContent = computerCount;
+        }
+    });
+
+    buttonsDiv.appendChild(rockButton);
+    buttonsDiv.appendChild(paperButton);
+    buttonsDiv.appendChild(scissorsButton);
 }
 
 game();
