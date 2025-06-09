@@ -70,7 +70,7 @@
 .search input {
     border-radius: 20px;
     border: none;
-    background-color: lightgray;
+    background-color: #efd9ff;
     height: 5px;
     width: 60%;
     padding: 10px;
@@ -78,11 +78,52 @@
 }
 
 .profile {
-    background-color: yellow;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.profile>* {
+    padding: 15px;
+}
+
+.profile svg {
+    height: 30px;
+    padding: 10px;
+}
+
+.profile img {
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+}
+
+.profile p {
+    padding: 10px;
+    font-size: 20px;
 }
 
 .welcome {
-    background-color: green;
+    display: flex;
+    align-items: center;
+}
+
+.welcome img {
+    height: 100px;
+    width: 100px;
+    border-radius: 100%;
+    margin-left: 40px;
+    margin-bottom: 20px;
+}
+
+.welcome p {
+    font-weight: bold;
+    padding-left: 20px;
+}
+
+.welcome span {
+    font-size: 32px;
 }
 
 .controls {
