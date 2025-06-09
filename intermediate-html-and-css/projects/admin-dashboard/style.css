@@ -119,15 +119,33 @@
 
 .welcome p {
     font-weight: bold;
+    height: 100%;
+    top: 20%;
+    position: relative;
     padding-left: 20px;
 }
 
 .welcome span {
-    font-size: 32px;
+    font-size: 28px;
 }
 
 .controls {
-    background-color: blue;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.controls button {
+    border-radius: 20px;
+    height: 30px;
+    text-align: center;
+    background-color: #9d34fa;
+    color: white;
+    font-size: 18px;
+    border: none;
+    font-weight: bold;
+    padding: 20px;
+    line-height: 0;
 }
 
 .content {
