@@ -149,5 +149,57 @@
 }
 
 .content {
-    background-color: coral;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.projects {
+    background-color: red;
+    grid-row: 1 / 3;
+}
+
+.announcements {
+    background-color: #efd9ff;
+}
+
+.announcements p {
+    font-weight: bold;
+    font-size: 20px;
+    padding: 30px 20px 20px 20px;
+}
+
+.announcements-container {
+    height: 72.5%;
+    border-radius: 10px;
+    background-color: white;
+    margin: 0 20px 0 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.announcement {
+    border-bottom: 1px solid gray;
+    margin: 10px 0;
+    height: 100%;
+}
+
+.announcement h1 {
+    font-size: 14px;
+}
+
+.announcement p {
+    font-size: 14px;
+    font-weight: normal;
+    padding: 5px 0 20px 0;
+}
+
+.announcement:last-of-type {
+    border-bottom: none;
+}
+
+.trending {
+    background-color: green;
 }
