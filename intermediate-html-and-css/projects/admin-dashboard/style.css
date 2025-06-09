@@ -51,7 +51,42 @@
 }
 
 .header {
-    background-color: lightblue;
+    background-color: white;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search svg {
+    height: 30px;
+}
+
+.search input {
+    border-radius: 20px;
+    border: none;
+    background-color: lightgray;
+    height: 5px;
+    width: 60%;
+    padding: 10px;
+    margin-left: 20px;
+}
+
+.profile {
+    background-color: yellow;
+}
+
+.welcome {
+    background-color: green;
+}
+
+.controls {
+    background-color: blue;
 }
 
 .content {
