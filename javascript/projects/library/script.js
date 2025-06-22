@@ -25,13 +25,28 @@ function addBookToLibrary(title, author, pages, read=false) {
 }
 
 function displayBooks() {
+    const containerDiv = document.querySelector(".container");
     for(let i = 0; i < library.length; i++) {
         console.log(library[i].title);
+
+        const div = document.createElement("div");
+        div.className = "book";
+        div.innerHTML = `<p>${library[i].title}</p>`;
+        containerDiv.appendChild(div);
     }
 }
 
 addBookToLibrary("test1", "me", 100);
 addBookToLibrary("test2", "me", 100);
 addBookToLibrary("3test", "me", 100);
+addBookToLibrary("test3", "me", 100);
+addBookToLibrary("test5", "me", 100);
+addBookToLibrary("39est", "me", 100);
+addBookToLibrary("t5t1", "me", 100);
+addBookToLibrary("te6t2", "me", 100);
+addBookToLibrary("3t8t", "me", 100);
+addBookToLibrary("t654t3", "me", 100);
+addBookToLibrary("t65t5", "me", 100);
+addBookToLibrary("35st", "me", 100);
 
 displayBooks();
