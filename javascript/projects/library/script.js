@@ -1,5 +1,8 @@
 const library = [];
 
+const newBookButton = document.querySelector(".newbook");
+const containerDiv = document.querySelector(".container");
+
 function Book(title, id, author, pages, read) {
     if(!new.target) {
         throw Error("Book must be called with new");
@@ -25,7 +28,6 @@ function addBookToLibrary(title, author, pages, read=false) {
 }
 
 function displayBooks() {
-    const containerDiv = document.querySelector(".container");
     for(let i = 0; i < library.length; i++) {
         console.log(library[i].title);
 
@@ -35,6 +37,8 @@ function displayBooks() {
         containerDiv.appendChild(div);
     }
 }
+
+
 
 addBookToLibrary("test1", "me", 100);
 addBookToLibrary("test2", "me", 100);

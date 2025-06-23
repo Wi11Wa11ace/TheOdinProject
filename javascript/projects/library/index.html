@@ -12,6 +12,24 @@
         <h1>My Library</h1>
     </header>
     <button class="newbook">New Book</button>
+    <form class="newbookform">
+        <h2>New Book</h2>
+        <section class="newbookformfields">
+            <label for="name" class="newbookformlabel newbookformfield">Name of Book:</label>
+            <input type="text" id="name" name="name" required class="newbookforminput newbookformfield">
+
+            <label for="author" class="newbookformlabel newbookformfield">Author:</label>
+            <input type="text" id="author" name="author" required class="newbookforminput newbookformfield">
+
+            <label for="pages" class="newbookformlabel newbookformfield">Number of Pages:</label>
+            <input type="number" id="pages" name="pages" required min="1" class="newbookforminput newbookformfield">
+
+            <label for="read" class="newbookformlabel newbookformfield">Read?</label>
+            <input type="checkbox" id="read" name="read" required class="newbookforminput newbookformfield">
+        </section>
+        <button type="submit" class="createbook">Create Book</button>
+
+    </form>
     <div class="container">
 
     </div>

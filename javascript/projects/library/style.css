@@ -47,3 +47,45 @@ header h1 {
     height: 10vh;
     padding: 25px 50px;
 }
+
+.newbookform {
+    margin: 30px auto auto auto;
+    border: 2px solid gray;
+    width: 50%;
+}
+
+.newbookform h2 {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.newbookformfields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 60%;
+    margin: auto;
+}
+
+.newbookformfield {
+    margin: 5px;
+    text-align: right;
+}
+
+.createbook {
+    width: 100px;
+    display: block;
+    text-align: center;
+    margin: 10px auto;
+    background-color: green;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: bold;
+    padding: 10px 10px;
+    border: none;
+    border-radius: 3%;
+    box-shadow: 3px 3px 3px gray;
+}
+
+.createbook:active {
+    background-color: darkgreen;
+}
