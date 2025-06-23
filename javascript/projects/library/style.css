@@ -71,6 +71,10 @@ header h1 {
     text-align: right;
 }
 
+.newbookforminput {
+    text-align: left;
+}
+
 .createbook {
     width: 100px;
     display: block;

@@ -1,7 +1,9 @@
 const library = [];
 
 const newBookButton = document.querySelector(".newbook");
+const newBookForm = document.querySelector(".newbookform");
 const containerDiv = document.querySelector(".container");
+const createBookButton = document.querySelector(".createbook");
 
 function Book(title, id, author, pages, read) {
     if(!new.target) {
@@ -38,7 +40,11 @@ function displayBooks() {
     }
 }
 
-
+newBookButton.onclick = function () {
+    if(newBookForm.style.display == 'none') {
+        newBookForm.style.display = 'block';
+    }
+};
 
 addBookToLibrary("test1", "me", 100);
 addBookToLibrary("test2", "me", 100);
