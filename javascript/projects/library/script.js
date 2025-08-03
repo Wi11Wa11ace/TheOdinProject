@@ -51,7 +51,7 @@ function displayBook(uuid) {
             const div = document.createElement("div");
             div.className = "book";
             div.innerHTML = `<p>${library[i].title}</p>
-                             <p class="delete" data-uuid="${uuid}" onclick="deleteBook(this)">X</p>`;
+                             <p><span data-uuid="${uuid}" class="read read-${library[i].read ? "yes" : "no"}" onclick="toggleRead(this);">${library[i].read ? "Y" : "N"}</span>  <span class="delete" data-uuid="${uuid}" onclick="deleteBook(this)">X</span></p>`;
             containerDiv.appendChild(div);
         }
     }
@@ -62,7 +62,25 @@ function deleteBook(element) {
 
     for(let i = 0; i < library.length; i++) {
         if(library[i].id == bookUuid) {
-            element.parentElement.remove();
+            element.parentElement.parentElement.remove();
+        }
+    }
+}
+
+function toggleRead(element) {
+    bookUuid = element.dataset.uuid;
+
+    for(let i = 0; i < library.length; i++) {
+        if(library[i].id == bookUuid) {
+            if(element.classList.contains('read-yes')) {
+                element.innerHTML = `N`;
+                element.classList.replace('read-yes', 'read-no');
+                library[i].read = false;
+            } else {
+                element.innerHTML = `Y`;
+                element.classList.replace('read-no', 'read-yes');
+                library[i].read = true;
+            }
         }
     }
 }

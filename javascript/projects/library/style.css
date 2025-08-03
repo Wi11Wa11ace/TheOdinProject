@@ -110,3 +110,18 @@ header h1 {
     font-weight: bold;
     font-size: 14pt;
 }
+
+.read {
+    justify-self: flex-end;
+    text-align: left;
+    font-weight: bold;
+    font-size: 14pt;
+}
+
+.read-yes {
+    color: green;
+}
+
+.read-no {
+    color: red;
+}
