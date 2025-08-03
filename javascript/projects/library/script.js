@@ -50,8 +50,19 @@ function displayBook(uuid) {
         if(library[i].id == uuid) {
             const div = document.createElement("div");
             div.className = "book";
-            div.innerHTML = `<p>${library[i].title}</p>`;
+            div.innerHTML = `<p>${library[i].title}</p>
+                             <p class="delete" data-uuid="${uuid}" onclick="deleteBook(this)">X</p>`;
             containerDiv.appendChild(div);
+        }
+    }
+}
+
+function deleteBook(element) {
+    bookUuid = element.dataset.uuid;
+
+    for(let i = 0; i < library.length; i++) {
+        if(library[i].id == bookUuid) {
+            element.parentElement.remove();
         }
     }
 }

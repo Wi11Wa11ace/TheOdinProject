@@ -43,9 +43,13 @@ header h1 {
 
 .book {
     margin: 30px;
-    border: 1px solid red;
+    border-radius: 20px;
+    background-color: lightgray;
     height: 10vh;
     padding: 25px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .newbookform {
@@ -97,4 +101,12 @@ header h1 {
 
 .createbook:active, .clearbutton:active {
     background-color: darkgreen;
+}
+
+.delete {
+    color: red;
+    justify-self: flex-end;
+    text-align: right;
+    font-weight: bold;
+    font-size: 14pt;
 }
