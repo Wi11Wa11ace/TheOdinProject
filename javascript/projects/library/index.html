@@ -11,8 +11,7 @@
     <header>
         <h1>My Library</h1>
     </header>
-    <button class="newbook">New Book</button>
-    <form class="newbookform">
+    <form class="newbookform" onsubmit="newBook(event)">
         <h2>New Book</h2>
         <section class="newbookformfields">
             <label for="name" class="newbookformlabel newbookformfield">Name of Book:</label>
@@ -27,7 +26,10 @@
             <label for="read" class="newbookformlabel newbookformfield">Read?</label>
             <input type="checkbox" id="read" name="read" required class="newbookforminput newbookformfield">
         </section>
-        <button type="submit" class="createbook">Create Book</button>
+        <section class="buttons">
+            <button type="submit" class="createbook">Create Book</button>
+            <button class="clearbutton">Cancel</button>
+        </section>
     </form>
     <div class="container">
 

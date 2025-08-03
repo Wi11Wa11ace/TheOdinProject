@@ -75,9 +75,14 @@ header h1 {
     text-align: left;
 }
 
-.createbook {
+.buttons {
+    width: 100%;
+    text-align: center;
+}
+
+.createbook, .clearbutton {
     width: 100px;
-    display: block;
+    display: inline;
     text-align: center;
     margin: 10px auto;
     background-color: green;
@@ -90,6 +95,6 @@ header h1 {
     box-shadow: 3px 3px 3px gray;
 }
 
-.createbook:active {
+.createbook:active, .clearbutton:active {
     background-color: darkgreen;
 }

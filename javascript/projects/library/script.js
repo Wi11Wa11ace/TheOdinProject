@@ -1,6 +1,6 @@
 const library = [];
 
-const newBookButton = document.querySelector(".newbook");
+const clearButton = document.querySelector(".clearbutton");
 const newBookForm = document.querySelector(".newbookform");
 const containerDiv = document.querySelector(".container");
 const createBookButton = document.querySelector(".createbook");
@@ -23,27 +23,41 @@ function Book(title, id, author, pages, read) {
     }
 }
 
+function newBook(event) {
+    event.preventDefault();
+
+    const form = event.target;
+    const title = form.elements['name'].value;
+    const author = form.elements['author'].value;
+    const pages = form.elements['pages'].value;
+    const read = form.elements['read'].value == 'on' ? true : false;
+
+    addBookToLibrary(title, author, pages, read);
+
+    form.reset();
+}
+
 function addBookToLibrary(title, author, pages, read=false) {
-    const book = new Book(title, crypto.randomUUID(), author, pages, read);
+    const uuid = crypto.randomUUID();
+    const book = new Book(title, uuid, author, pages, read);
     library.push(book);
     console.log(`Book ${title} added to library.`);
+    displayBook(uuid);
 }
 
-function displayBooks() {
+function displayBook(uuid) {
     for(let i = 0; i < library.length; i++) {
-        console.log(library[i].title);
-
-        const div = document.createElement("div");
-        div.className = "book";
-        div.innerHTML = `<p>${library[i].title}</p>`;
-        containerDiv.appendChild(div);
+        if(library[i].id == uuid) {
+            const div = document.createElement("div");
+            div.className = "book";
+            div.innerHTML = `<p>${library[i].title}</p>`;
+            containerDiv.appendChild(div);
+        }
     }
 }
 
-newBookButton.onclick = function () {
-    if(newBookForm.style.display == 'none') {
-        newBookForm.style.display = 'block';
-    }
+clearButton.onclick = function () {
+    newBookForm.reset();
 };
 
 addBookToLibrary("test1", "me", 100);
@@ -58,5 +72,3 @@ addBookToLibrary("3t8t", "me", 100);
 addBookToLibrary("t654t3", "me", 100);
 addBookToLibrary("t65t5", "me", 100);
 addBookToLibrary("35st", "me", 100);
-
-displayBooks();
