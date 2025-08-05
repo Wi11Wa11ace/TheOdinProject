@@ -9,8 +9,9 @@ function Game() {
     this.currentPlayer = this.player1;
 
     this.makeMove = (marker, row, col) => {
-        if(this.gameboard.board[row][col] === '') {
-            this.gameboard.board[row][col] = marker;
+        let currentBoard = this.gameboard.getBoard();
+        if(currentBoard[row][col] === '') {
+            this.gameboard.setBoard(row, col, marker);
             return true; // Move was successful
         }
         return false; // Move failed, cell already occupied
@@ -28,6 +29,7 @@ function Game() {
                 console.log(`Player ${this.currentPlayer.marker} made a move at (${row}, ${col})`);
                 if(this.checkForWins(this.currentPlayer.marker)) {
                     console.log(`Player ${this.currentPlayer.marker} wins!`);
+                    this.reset();
                     break;
                 }
                 this.currentPlayer = this.currentPlayer === this.player1 ? this.player2 : this.player1; // Switch players
@@ -44,6 +46,42 @@ function Game() {
     this.checkForWins = (marker) => {
         return this.gameboard.checkForWins(marker);
     }
+
+    this.draw = () => {
+        const gameContainer = document.querySelector('.game-container');
+
+        for(let i = 0; i < 3; i++) {
+            for(let j = 0; j < 3; j++) {
+                const cell = document.createElement('div');
+                cell.classList.add('cell');
+                cell.dataset.row = i;
+                cell.dataset.col = j;
+                cell.addEventListener('click', () => {
+                    if(this.makeMove(this.currentPlayer.marker, i, j)) {
+                        cell.textContent = this.currentPlayer.marker;
+                        if(this.checkForWins(this.currentPlayer.marker)) {
+                            alert(`Player ${this.currentPlayer.marker} wins!`);
+                            this.reset();
+                        } else {
+                            this.currentPlayer = this.currentPlayer === this.player1 ? this.player2 : this.player1; // Switch players
+                        }
+                    } else {
+                        alert("Invalid move, try again.");
+                    }
+                });
+                gameContainer.appendChild(cell);
+            }
+        }
+    }
+
+    this.reset = () => {
+        this.gameboard = new Gameboard();
+        this.currentPlayer = this.player1;
+        const gameContainer = document.querySelector('.game-container');
+        gameContainer.innerHTML = ''; // Clear the game board
+        this.draw(); // Redraw the game board
+        console.log("Game has been reset.");
+    }
 }
 
 function Gameboard() {
@@ -55,6 +93,10 @@ function Gameboard() {
 
     this.getBoard = () => {
         return this.board;
+    }
+
+    this.setBoard = (row, col, marker) => {
+        this.board[row][col] = marker;
     }
 
     this.checkForWins = (marker) => {
@@ -82,4 +124,5 @@ function Player(marker) {
 }
 
 const game = new Game();
-game.play();
+
+game.draw();
