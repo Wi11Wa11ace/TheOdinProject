@@ -1,14 +1,16 @@
-function Game() {
-    if(!new.target) {
-        throw new Error("Game must be called with 'new'");
-    };
+class Game {
 
-    this.gameboard = new Gameboard();
-    this.player1 = new Player('X');
-    this.player2 = new Player('O');
-    this.currentPlayer = this.player1;
+    constructor() {
+        if(!new.target) {
+            throw new Error("Game must be called with 'new'");
+        };
+        this.gameboard = new Gameboard();
+        this.player1 = new Player('X');
+        this.player2 = new Player('O');
+        this.currentPlayer = this.player1;
+    }
 
-    this.makeMove = (marker, row, col) => {
+    makeMove = (marker, row, col) => {
         let currentBoard = this.gameboard.getBoard();
         if(currentBoard[row][col] === '') {
             this.gameboard.setBoard(row, col, marker);
@@ -17,7 +19,7 @@ function Game() {
         return false; // Move failed, cell already occupied
     }
 
-    this.play = () => {
+    play = () => {
         let row, col;
 
         while(true) {
@@ -39,15 +41,15 @@ function Game() {
         }
     }
 
-    this.getBoard = () => {
+    getBoard = () => {
         return this.gameboard.getBoard();
     }
 
-    this.checkForWins = (marker) => {
+    checkForWins = (marker) => {
         return this.gameboard.checkForWins(marker);
     }
 
-    this.draw = () => {
+    draw = () => {
         const gameContainer = document.querySelector('.game-container');
 
         for(let i = 0; i < 3; i++) {
@@ -74,7 +76,7 @@ function Game() {
         }
     }
 
-    this.reset = () => {
+    reset = () => {
         this.gameboard = new Gameboard();
         this.currentPlayer = this.player1;
         const gameContainer = document.querySelector('.game-container');
