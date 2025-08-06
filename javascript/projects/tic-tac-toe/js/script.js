@@ -86,22 +86,25 @@ class Game {
     }
 }
 
-function Gameboard() {
-    if(!new.target) {
-        throw new Error("Gameboard must be called with 'new'");
-    };
+class Gameboard {
 
-    this.board = [['', '', ''], ['', '', ''], ['', '', '']];
+    constructor() {
+        if(!new.target) {
+            throw new Error("Gameboard must be called with 'new'");
+        };
 
-    this.getBoard = () => {
+        this.board = [['', '', ''], ['', '', ''], ['', '', '']];
+    }
+
+    getBoard = () => {
         return this.board;
     }
 
-    this.setBoard = (row, col, marker) => {
+    setBoard = (row, col, marker) => {
         this.board[row][col] = marker;
     }
 
-    this.checkForWins = (marker) => {
+    checkForWins = (marker) => {
 
         for(let i = 0; i < 3; i++) {
             if(this.board[i].every(cell => cell === marker) || 
@@ -117,12 +120,14 @@ function Gameboard() {
     }
 };
 
-function Player(marker) {
-    if(!new.target) {
-        throw new Error("Player must be called with 'new'");
-    };
+class Player {
+    constructor(marker) {
+        if(!new.target) {
+            throw new Error("Player must be called with 'new'");
+        };
 
-    this.marker = marker;
+        this.marker = marker;
+    }
 }
 
 const game = new Game();
