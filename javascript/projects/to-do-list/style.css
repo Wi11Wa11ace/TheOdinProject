@@ -17,6 +17,12 @@
     margin-bottom: 20px;
 }
 
+.container p {
+    font-size: 1.2em;
+    color: #555;
+    margin: 10px 0;
+}
+
 ul {
     list-style-type: none;
     padding: 0;

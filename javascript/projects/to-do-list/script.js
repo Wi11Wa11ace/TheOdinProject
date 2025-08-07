@@ -57,6 +57,19 @@ function renderList() {
     toDoList.getItems().forEach(item => {
         const itemElement = document.createElement('li');
         itemElement.textContent = item.getTitle();
+        itemElement.addEventListener('click', () => {
+            const newTitle = prompt('Edit item title:', item.getTitle());
+            if (newTitle !== null && newTitle.trim() !== '') {
+                item.setTitle(newTitle.trim());
+                renderList();
+            }
+        });
+        itemElement.addEventListener('mouseover', () => {
+            itemElement.style.backgroundColor = '#e0e0e0';
+        });
+        itemElement.addEventListener('mouseout', () => {
+            itemElement.style.backgroundColor = '';
+        });
         listContainer.appendChild(itemElement);
     });
 }
